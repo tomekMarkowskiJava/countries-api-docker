@@ -25,6 +25,3 @@ services:
     command: mvn clean spring-boot:run
     depends_on:
       - postgres-db
-
-networks:
-  country-postgre_db:
