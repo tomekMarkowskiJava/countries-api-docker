@@ -1,4 +1,4 @@
-package com.markowski.countriesdocker.Repository;
+package com.markowski.countriesdocker.repository;
 
 import com.markowski.countriesdocker.model.Country;
 import org.springframework.data.repository.CrudRepository;
