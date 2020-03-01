@@ -25,6 +25,15 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+    @ExceptionHandler(NullPointerException.class)
+    protected ResponseEntity<Object> handleNullPointer(
+            NullPointerException ex) {
+        ApiError apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR);
+        apiError.setMessage("INVALID_COUNTRY_CODE");
+        return buildResponseEntity(apiError);
+    }
+
+
 
     @ExceptionHandler(JDBCConnectionException.class)
     protected ResponseEntity<Object> handleDatabaseDownException(

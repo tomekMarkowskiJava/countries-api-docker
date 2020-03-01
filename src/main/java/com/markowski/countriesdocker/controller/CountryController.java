@@ -24,7 +24,7 @@ public class CountryController {
     }
 
     @GetMapping("/{code}")
-    public CountryAPI getCountryInfo(@PathVariable String code){
+    public CountryAPI getCountryInfo(@PathVariable String code) {
         Country country = countryService.getCountry(code);
         List<CountryLanguage> temp = countryLanguageService.getCountryLanguages(code);
         List<String> languages = new ArrayList<>();
@@ -33,6 +33,6 @@ public class CountryController {
             if (!languages.contains(language))
                 languages.add(language);
         }
-        return new CountryAPI(country.getName(),country.getContinent(),country.getPopulation(),country.getLifeExpectancy(), languages);
+        return new CountryAPI(country.getName(), country.getContinent(), country.getPopulation(), country.getLifeExpectancy(), languages);
     }
 }

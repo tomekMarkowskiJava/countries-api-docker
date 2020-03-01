@@ -19,7 +19,7 @@ public class Country {
     @Column(name = "population")
     private Integer population;
     @Column(name = "life_expectancy")
-    private float lifeExpectancy;
+    private Float lifeExpectancy;
 
 
     public String getCode() {
@@ -55,11 +55,11 @@ public class Country {
         this.population = population;
     }
 
-    public float getLifeExpectancy() {
+    public Float getLifeExpectancy() {
         return lifeExpectancy;
     }
 
-    public void setLifeExpectancy(float lifeExpectancy) {
+    public void setLifeExpectancy(Float lifeExpectancy) {
         this.lifeExpectancy = lifeExpectancy;
     }
 
