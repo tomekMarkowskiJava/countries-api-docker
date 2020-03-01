@@ -16,7 +16,7 @@ public class CountryLanguageService {
 
 
     public List<CountryLanguage> getCountryLanguages(String countryCode){
-        List<CountryLanguage> languages = countryLanguageRepository.findByCode(countryCode);
+        List<CountryLanguage> languages = countryLanguageRepository.findByCountryCode(countryCode);
         return languages;
     }
 }

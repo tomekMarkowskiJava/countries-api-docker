@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface CountryLanguageRepository extends CrudRepository<Country, Long> {
+public interface CountryLanguageRepository extends CrudRepository<CountryLanguage, String> {
 
-    List<CountryLanguage> findByCode(String countryCode);
+    List<CountryLanguage> findByCountryCode(String countryCode);
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,9 +27,11 @@ public class CountryController {
     public CountryAPI getCountryInfo(@PathVariable String code){
         Country country = countryService.getCountry(code);
         List<CountryLanguage> temp = countryLanguageService.getCountryLanguages(code);
-        List<String> languages = null;
+        List<String> languages = new ArrayList<>();
         for (int i = 0; i < temp.size() ; i++) {
-            languages.add(temp.get(i).getLanguage());
+            String language = temp.get(i).getLanguage();
+            if (!languages.contains(language))
+            languages.add(language);
         }
         CountryAPI countryAPI =
                 new CountryAPI(country.getName(),country.getContinent(),country.getPopulation(),country.getLifeExpectancy(), languages);
