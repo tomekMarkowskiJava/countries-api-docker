@@ -28,13 +28,11 @@ public class CountryController {
         Country country = countryService.getCountry(code);
         List<CountryLanguage> temp = countryLanguageService.getCountryLanguages(code);
         List<String> languages = new ArrayList<>();
-        for (int i = 0; i < temp.size() ; i++) {
-            String language = temp.get(i).getLanguage();
+        for (CountryLanguage countryLanguage : temp) {
+            String language = countryLanguage.getLanguage();
             if (!languages.contains(language))
-            languages.add(language);
+                languages.add(language);
         }
-        CountryAPI countryAPI =
-                new CountryAPI(country.getName(),country.getContinent(),country.getPopulation(),country.getLifeExpectancy(), languages);
-        return countryAPI;
+        return new CountryAPI(country.getName(),country.getContinent(),country.getPopulation(),country.getLifeExpectancy(), languages);
     }
 }

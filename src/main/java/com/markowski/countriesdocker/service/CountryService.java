@@ -14,7 +14,6 @@ public class CountryService {
     }
 
     public Country getCountry(String code) {
-        Country country = countryRepository.findByCode(code);
-        return country;
+        return countryRepository.findByCode(code);
     }
 }
